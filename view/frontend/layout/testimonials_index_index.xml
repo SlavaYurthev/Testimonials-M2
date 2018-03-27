@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Testimonials
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<title>Testimonials</title>
+	</head>
+	<body>
+		<referenceContainer name="content">
+			<block class="SY\Testimonials\Block\Listing" template="SY_Testimonials::listing.phtml" />
+		</referenceContainer>
+	</body>
+</page>

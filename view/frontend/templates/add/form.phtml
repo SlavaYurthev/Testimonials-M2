@@ -1,0 +1,59 @@
+<?php
+/**
+ * Testimonials
+ * 
+ * @author Slava Yurthev
+ */
+?>
+<form action="<?php echo $this->getUrl('testimonials/index/save'); ?>" method="post" enctype="multipart/form-data" data-mage-init='{"validation": {}}'>
+	<input name="form_key" type="hidden" value="<?php echo $this->getFormKey(); ?>">
+	<fieldset class="fieldset">
+		<div class="field required">
+			<label for="image" class="label"><span><?php echo __('Image') ?></span></label>
+			<div class="control">
+				<input type="file" name="image" id="image" value="" title="<?php echo __('Image') ?>" class="input-text" data-validate="{required:true, 'required-entry': true}" accept=".jpg, .jpeg, .png">
+			</div>
+		</div>
+		<div class="field required">
+			<label for="author" class="label"><span><?php echo __('Author') ?></span></label>
+			<div class="control">
+				<input type="text" name="author" id="author" value="" title="<?php echo __('Author') ?>" class="input-text" data-validate="{required:true, 'required-entry': true}">
+			</div>
+		</div>
+		<div class="field required">
+			<label for="title" class="label"><span><?php echo __('Title') ?></span></label>
+			<div class="control">
+				<input type="text" name="title" id="title" value="" title="<?php echo __('Title') ?>" class="input-text" data-validate="{required:true, 'required-entry': true}">
+			</div>
+		</div>
+		<div class="field required">
+			<label for="description" class="label"><span><?php echo __('Description') ?></span></label>
+			<div class="control">
+				<textarea type="text" name="description" id="description" value="" title="<?php echo __('Description') ?>" class="input-text" data-validate="{required:true, 'required-entry': true}" style="resize:none" rows="5"></textarea>
+			</div>
+		</div>
+		<div class="field required">
+			<label for="text" class="label"><span><?php echo __('Text') ?></span></label>
+			<div class="control">
+				<textarea type="text" name="text" id="text" value="" title="<?php echo __('Text') ?>" class="input-text" data-validate="{required:true, 'required-entry': true}"></textarea>
+			</div>
+		</div>
+	</fieldset>
+	<div class="actions-toolbar">
+		<div class="primary">
+			<button type="submit" class="action submit primary" title="<?php  echo __('Submit') ?>"><span><?php echo __('Submit') ?></span></button>
+		</div>
+	</div>
+</form>
+<style type="text/css">
+.fieldset .field .label {
+	text-align: left !important;
+}
+</style>
+<script type="text/javascript">
+require(["jquery", "mage/adminhtml/wysiwyg/tiny_mce/setup"], function (jQuery) {
+	var editor;
+	editor = new tinyMceWysiwygSetup('text', <?php echo \Zend_Json::encode($this->getWysiwygConfig()); ?>);
+	editor.turnOn();
+});
+</script>

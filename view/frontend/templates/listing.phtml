@@ -1,0 +1,39 @@
+<?php
+/**
+ * Testimonials
+ * 
+ * @author Slava Yurthev
+ */
+?>
+<?php if($this->getCollection()->count()>0): ?>
+	<table width="100%">
+		<?php foreach($this->getCollection() as $item): ?>
+			<tr>
+				<td style="width:150px; text-align:center; padding-bottom:15px">
+					<?php if($item->getData('image')): ?>
+						<img src="<?php echo $item->getData('image'); ?>" width="100px" />
+						<p>&nbsp;</p>
+					<?php endif; ?>
+					<p style="font-weight:bold"><?php echo $item->getData('author'); ?></p>
+				</td>
+				<td style="padding-bottom:15px">
+					<h3 style="font-weight:bold;margin-top:0"><?php echo $item->getData('title'); ?></h3>
+					<div><?php echo $item->getData('description'); ?></div>
+					<?php if($item->getData('text')): ?>
+						<div style="margin-top:12px">
+							<a href="<?php echo $item->getUrl(); ?>">
+								<?php echo __('Read More'); ?>
+							</a>
+						</div>
+					<?php endif; ?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</table>
+	<?php echo $this->getPagerHtml(); ?>
+	<div style="margin-top:12px" class="actions">
+		<button type="button" class="action" style="width:100%" onclick="window.location.href = '<?php echo $this->getAddUrl(); ?>'"><span><span><?php echo __('Add Testimonial'); ?></span></span></button>
+	</div>
+<?php else: ?>
+	<p><?php echo __('No Testimonials.'); ?> <a href="<?php echo $this->getAddUrl(); ?>"><?php echo __('Add Testimonial'); ?></a></p>
+<?php endif; ?>

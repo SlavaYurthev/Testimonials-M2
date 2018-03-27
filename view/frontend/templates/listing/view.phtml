@@ -1,0 +1,21 @@
+<?php
+/**
+ * Testimonials
+ * 
+ * @author Slava Yurthev
+ */
+?>
+<table width="100%">
+	<tr>
+		<td width="150px" style="text-align:center">
+			<?php if($this->getItem('image')): ?>
+				<img src="<?php echo $this->getItem('image'); ?>" width="100px" />
+				<p>&nbsp;</p>
+			<?php endif; ?>
+			<p style="font-weight:bold"><?php echo $this->getItem('author'); ?></p>
+		</td>
+		<td>
+			<div><?php echo $this->getItem('text'); ?></div>
+		</td>
+	</tr>
+</table>
